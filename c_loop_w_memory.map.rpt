@@ -1,0 +1,763 @@
+Analysis & Synthesis report for c_loop_w_memory
+Thu Nov 04 12:57:13 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. State Machine - |c_loop_w_memory|S
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for numbers:memory|altsyncram:altsyncram_component|altsyncram_30i1:auto_generated
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |c_loop_w_memory
+ 17. Parameter Settings for User Entity Instance: numbers:memory|altsyncram:altsyncram_component
+ 18. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:two_d|lpm_divide:Div2
+ 19. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:two_d|lpm_divide:Div3
+ 20. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:two_d|lpm_divide:Mod2
+ 21. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:two_d|lpm_divide:Mod3
+ 22. altsyncram Parameter Settings by Entity Instance
+ 23. Port Connectivity Checks: "three_decimal_vals_w_neg:two_d"
+ 24. Port Connectivity Checks: "numbers:memory"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
+ 28. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Nov 04 12:57:13 2021       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; c_loop_w_memory                             ;
+; Top-level Entity Name              ; c_loop_w_memory                             ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 213                                         ;
+;     Total combinational functions  ; 211                                         ;
+;     Dedicated logic registers      ; 44                                          ;
+; Total registers                    ; 44                                          ;
+; Total pins                         ; 33                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 224                                         ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; c_loop_w_memory    ; c_loop_w_memory    ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                    ;
++----------------------------------+-----------------+----------------------------------+-----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                            ; Library ;
++----------------------------------+-----------------+----------------------------------+-----------------------------------------------------------------------------------------+---------+
+; three_decimal_vals_w_neg.v       ; yes             ; User Verilog HDL File            ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v ;         ;
+; numbers.v                        ; yes             ; User Wizard-Generated File       ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/numbers.v                  ;         ;
+; Milf1.mif                        ; yes             ; User Memory Initialization File  ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/Milf1.mif                  ;         ;
+; seven_segment.v                  ; yes             ; User Verilog HDL File            ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/seven_segment.v            ;         ;
+; seven_segment_negative.v         ; yes             ; User Verilog HDL File            ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/seven_segment_negative.v   ;         ;
+; c_loop_w_memory.v                ; yes             ; Auto-Found Verilog HDL File      ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v          ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf                   ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc            ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                      ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc                   ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                   ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                    ;         ;
+; altrom.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc                       ;         ;
+; altram.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc                       ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                     ;         ;
+; db/altsyncram_30i1.tdf           ; yes             ; Auto-Generated Megafunction      ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/altsyncram_30i1.tdf     ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf                   ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc                  ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc              ;         ;
+; db/lpm_divide_mhm.tdf            ; yes             ; Auto-Generated Megafunction      ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/lpm_divide_mhm.tdf      ;         ;
+; db/sign_div_unsign_ekh.tdf       ; yes             ; Auto-Generated Megafunction      ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/sign_div_unsign_ekh.tdf ;         ;
+; db/alt_u_div_g4f.tdf             ; yes             ; Auto-Generated Megafunction      ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/alt_u_div_g4f.tdf       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction      ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction      ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/add_sub_8pc.tdf         ;         ;
+; db/lpm_divide_jhm.tdf            ; yes             ; Auto-Generated Megafunction      ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/lpm_divide_jhm.tdf      ;         ;
+; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction      ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/sign_div_unsign_bkh.tdf ;         ;
+; db/alt_u_div_a4f.tdf             ; yes             ; Auto-Generated Megafunction      ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/alt_u_div_a4f.tdf       ;         ;
+; db/lpm_divide_m9m.tdf            ; yes             ; Auto-Generated Megafunction      ; //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/lpm_divide_m9m.tdf      ;         ;
++----------------------------------+-----------------+----------------------------------+-----------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 213       ;
+;                                             ;           ;
+; Total combinational functions               ; 211       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 76        ;
+;     -- 3 input functions                    ; 46        ;
+;     -- <=2 input functions                  ; 89        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 135       ;
+;     -- arithmetic mode                      ; 76        ;
+;                                             ;           ;
+; Total registers                             ; 44        ;
+;     -- Dedicated logic registers            ; 44        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 33        ;
+; Total memory bits                           ; 224       ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; rst~input ;
+; Maximum fan-out                             ; 44        ;
+; Total fan-out                               ; 825       ;
+; Average fan-out                             ; 2.52      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                              ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                             ; Entity Name              ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
+; |c_loop_w_memory                          ; 211 (89)            ; 44 (44)                   ; 224         ; 0            ; 0       ; 0         ; 33   ; 0            ; |c_loop_w_memory                                                                                                                                ; c_loop_w_memory          ; work         ;
+;    |numbers:memory|                       ; 0 (0)               ; 0 (0)                     ; 224         ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|numbers:memory                                                                                                                 ; numbers                  ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 224         ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|numbers:memory|altsyncram:altsyncram_component                                                                                 ; altsyncram               ; work         ;
+;          |altsyncram_30i1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 224         ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|numbers:memory|altsyncram:altsyncram_component|altsyncram_30i1:auto_generated                                                  ; altsyncram_30i1          ; work         ;
+;    |three_decimal_vals_w_neg:two_d|       ; 122 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d                                                                                                 ; three_decimal_vals_w_neg ; work         ;
+;       |lpm_divide:Div2|                   ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Div2                                                                                 ; lpm_divide               ; work         ;
+;          |lpm_divide_mhm:auto_generated|  ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Div2|lpm_divide_mhm:auto_generated                                                   ; lpm_divide_mhm           ; work         ;
+;             |sign_div_unsign_ekh:divider| ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Div2|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider                       ; sign_div_unsign_ekh      ; work         ;
+;                |alt_u_div_g4f:divider|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Div2|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider|alt_u_div_g4f:divider ; alt_u_div_g4f            ; work         ;
+;       |lpm_divide:Div3|                   ; 44 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Div3                                                                                 ; lpm_divide               ; work         ;
+;          |lpm_divide_jhm:auto_generated|  ; 44 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Div3|lpm_divide_jhm:auto_generated                                                   ; lpm_divide_jhm           ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 44 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Div3|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh      ; work         ;
+;                |alt_u_div_a4f:divider|    ; 44 (44)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Div3|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f            ; work         ;
+;       |lpm_divide:Mod2|                   ; 10 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Mod2                                                                                 ; lpm_divide               ; work         ;
+;          |lpm_divide_m9m:auto_generated|  ; 10 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Mod2|lpm_divide_m9m:auto_generated                                                   ; lpm_divide_m9m           ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 10 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Mod2|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh      ; work         ;
+;                |alt_u_div_a4f:divider|    ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Mod2|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f            ; work         ;
+;       |lpm_divide:Mod3|                   ; 47 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Mod3                                                                                 ; lpm_divide               ; work         ;
+;          |lpm_divide_m9m:auto_generated|  ; 47 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Mod3|lpm_divide_m9m:auto_generated                                                   ; lpm_divide_m9m           ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 47 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Mod3|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh      ; work         ;
+;                |alt_u_div_a4f:divider|    ; 47 (47)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|lpm_divide:Mod3|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f            ; work         ;
+;       |seven_segment:ones|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|seven_segment:ones                                                                              ; seven_segment            ; work         ;
+;       |seven_segment:tens|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |c_loop_w_memory|three_decimal_vals_w_neg:two_d|seven_segment:tens                                                                              ; seven_segment            ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                             ;
++------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------+
+; Name                                                                                     ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF       ;
++------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------+
+; numbers:memory|altsyncram:altsyncram_component|altsyncram_30i1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 32           ; 8            ; --           ; --           ; 256  ; Milf1.mif ;
++------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                             ;
++--------+--------------+---------+--------------+--------------+---------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                 ; IP Include File ;
++--------+--------------+---------+--------------+--------------+---------------------------------+-----------------+
+; Altera ; RAM: 1-PORT  ; 16.1    ; N/A          ; N/A          ; |c_loop_w_memory|numbers:memory ; numbers.v       ;
++--------+--------------+---------+--------------+--------------+---------------------------------+-----------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------+
+; State Machine - |c_loop_w_memory|S                                                    ;
++-----------+--------+--------+-------+--------+-----------+---------+--------+---------+
+; Name      ; S.EXIT ; S.INCR ; S.SUM ; S.COND ; S.FORINIT ; S.START ; S.PROG ; S.ERROR ;
++-----------+--------+--------+-------+--------+-----------+---------+--------+---------+
+; S.PROG    ; 0      ; 0      ; 0     ; 0      ; 0         ; 0       ; 0      ; 0       ;
+; S.START   ; 0      ; 0      ; 0     ; 0      ; 0         ; 1       ; 1      ; 0       ;
+; S.FORINIT ; 0      ; 0      ; 0     ; 0      ; 1         ; 0       ; 1      ; 0       ;
+; S.COND    ; 0      ; 0      ; 0     ; 1      ; 0         ; 0       ; 1      ; 0       ;
+; S.SUM     ; 0      ; 0      ; 1     ; 0      ; 0         ; 0       ; 1      ; 0       ;
+; S.INCR    ; 0      ; 1      ; 0     ; 0      ; 0         ; 0       ; 1      ; 0       ;
+; S.EXIT    ; 1      ; 0      ; 0     ; 0      ; 0         ; 0       ; 1      ; 0       ;
+; S.ERROR   ; 0      ; 0      ; 0     ; 0      ; 0         ; 0       ; 1      ; 1       ;
++-----------+--------+--------+-------+--------+-----------+---------+--------+---------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; S~4                                   ; Lost fanout                            ;
+; S~5                                   ; Lost fanout                            ;
+; S~6                                   ; Lost fanout                            ;
+; S.EXIT                                ; Lost fanout                            ;
+; S.ERROR                               ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 5 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                 ;
++---------------+--------------------+----------------------------------------+
+; Register name ; Reason for Removal ; Registers Removed due to This Register ;
++---------------+--------------------+----------------------------------------+
+; S~5           ; Lost Fanouts       ; S.EXIT                                 ;
++---------------+--------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 44    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 44    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 2     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |c_loop_w_memory|sum[2]    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Source assignments for numbers:memory|altsyncram:altsyncram_component|altsyncram_30i1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------+
+; Assignment                      ; Value              ; From ; To                                     ;
++---------------------------------+--------------------+------+----------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                      ;
++---------------------------------+--------------------+------+----------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |c_loop_w_memory ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; PROG           ; 0000  ; Unsigned Binary                                        ;
+; START          ; 0001  ; Unsigned Binary                                        ;
+; FORINIT        ; 0010  ; Unsigned Binary                                        ;
+; COND           ; 0011  ; Unsigned Binary                                        ;
+; SUM            ; 0100  ; Unsigned Binary                                        ;
+; INCR           ; 0101  ; Unsigned Binary                                        ;
+; EXIT           ; 0110  ; Unsigned Binary                                        ;
+; ERROR          ; 1111  ; Unsigned Binary                                        ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: numbers:memory|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+---------------------------------+
+; Parameter Name                     ; Value                ; Type                            ;
++------------------------------------+----------------------+---------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                         ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                  ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                         ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                         ;
+; WIDTH_A                            ; 8                    ; Signed Integer                  ;
+; WIDTHAD_A                          ; 5                    ; Signed Integer                  ;
+; NUMWORDS_A                         ; 32                   ; Signed Integer                  ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                         ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                         ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                         ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                         ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                         ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                         ;
+; WIDTH_B                            ; 1                    ; Untyped                         ;
+; WIDTHAD_B                          ; 1                    ; Untyped                         ;
+; NUMWORDS_B                         ; 1                    ; Untyped                         ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                         ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                         ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                         ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                         ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                         ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                         ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                         ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                         ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                         ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                         ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                         ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                         ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                  ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                         ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                         ;
+; BYTE_SIZE                          ; 8                    ; Untyped                         ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                         ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                         ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                         ;
+; INIT_FILE                          ; Milf1.mif            ; Untyped                         ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                         ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                         ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                         ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                         ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                         ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                         ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                         ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                         ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                         ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                         ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                         ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                         ;
+; CBXI_PARAMETER                     ; altsyncram_30i1      ; Untyped                         ;
++------------------------------------+----------------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:two_d|lpm_divide:Div2 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                               ;
+; LPM_WIDTHD             ; 7              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_mhm ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:two_d|lpm_divide:Div3 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                               ;
+; LPM_WIDTHD             ; 4              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_jhm ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:two_d|lpm_divide:Mod2 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                               ;
+; LPM_WIDTHD             ; 4              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:two_d|lpm_divide:Mod3 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                               ;
+; LPM_WIDTHD             ; 4              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                           ;
++-------------------------------------------+------------------------------------------------+
+; Name                                      ; Value                                          ;
++-------------------------------------------+------------------------------------------------+
+; Number of entity instances                ; 1                                              ;
+; Entity Instance                           ; numbers:memory|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                    ;
+;     -- WIDTH_A                            ; 8                                              ;
+;     -- NUMWORDS_A                         ; 32                                             ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                   ;
+;     -- WIDTH_B                            ; 1                                              ;
+;     -- NUMWORDS_B                         ; 1                                              ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ;
++-------------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "three_decimal_vals_w_neg:two_d" ;
++--------+-------+----------+--------------------------------+
+; Port   ; Type  ; Severity ; Details                        ;
++--------+-------+----------+--------------------------------+
+; val[7] ; Input ; Info     ; Stuck at GND                   ;
++--------+-------+----------+--------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "numbers:memory"                                                                                                      ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                              ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------------------+
+; data ; Input  ; Info     ; Stuck at GND                                                                                                         ;
+; wren ; Input  ; Info     ; Stuck at GND                                                                                                         ;
+; q    ; Output ; Warning  ; Output or bidir port (8 bits) is wider than the port expression (7 bits) it drives; bit(s) "q[7..7]" have no fanouts ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 33                          ;
+; cycloneiii_ff         ; 44                          ;
+;     CLR               ; 42                          ;
+;     ENA CLR           ; 2                           ;
+; cycloneiii_lcell_comb ; 215                         ;
+;     arith             ; 76                          ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 42                          ;
+;         3 data inputs ; 30                          ;
+;     normal            ; 139                         ;
+;         0 data inputs ; 12                          ;
+;         1 data inputs ; 6                           ;
+;         2 data inputs ; 29                          ;
+;         3 data inputs ; 16                          ;
+;         4 data inputs ; 76                          ;
+; cycloneiii_ram_block  ; 7                           ;
+;                       ;                             ;
+; Max LUT depth         ; 13.60                       ;
+; Average LUT depth     ; 8.22                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Thu Nov 04 12:57:00 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off c_loop_w_memory -c c_loop_w_memory
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file three_decimal_vals_w_neg.v
+    Info (12023): Found entity 1: three_decimal_vals_w_neg File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file numbers.v
+    Info (12023): Found entity 1: numbers File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/numbers.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file seven_segment.v
+    Info (12023): Found entity 1: seven_segment File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/seven_segment.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file seven_segment_negative.v
+    Info (12023): Found entity 1: seven_segment_negative File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/seven_segment_negative.v Line: 1
+Warning (12125): Using design file c_loop_w_memory.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: c_loop_w_memory File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 1
+Info (12127): Elaborating entity "c_loop_w_memory" for the top level hierarchy
+Info (10264): Verilog HDL Case Statement information at c_loop_w_memory.v(95): all case item expressions in this case statement are onehot File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 95
+Info (10264): Verilog HDL Case Statement information at c_loop_w_memory.v(134): all case item expressions in this case statement are onehot File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 134
+Warning (10034): Output port "done" at c_loop_w_memory.v(6) has no driver File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 6
+Info (12128): Elaborating entity "numbers" for hierarchy "numbers:memory" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 36
+Info (12128): Elaborating entity "altsyncram" for hierarchy "numbers:memory|altsyncram:altsyncram_component" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/numbers.v Line: 86
+Info (12130): Elaborated megafunction instantiation "numbers:memory|altsyncram:altsyncram_component" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/numbers.v Line: 86
+Info (12133): Instantiated megafunction "numbers:memory|altsyncram:altsyncram_component" with the following parameter: File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/numbers.v Line: 86
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "Milf1.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "32"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "5"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_30i1.tdf
+    Info (12023): Found entity 1: altsyncram_30i1 File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/altsyncram_30i1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_30i1" for hierarchy "numbers:memory|altsyncram:altsyncram_component|altsyncram_30i1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "three_decimal_vals_w_neg" for hierarchy "three_decimal_vals_w_neg:two_d" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 173
+Warning (10230): Verilog HDL assignment warning at three_decimal_vals_w_neg.v(23): truncated value with size 8 to match size of target (4) File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 23
+Warning (10230): Verilog HDL assignment warning at three_decimal_vals_w_neg.v(24): truncated value with size 8 to match size of target (4) File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 24
+Warning (10230): Verilog HDL assignment warning at three_decimal_vals_w_neg.v(25): truncated value with size 8 to match size of target (4) File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 25
+Warning (10230): Verilog HDL assignment warning at three_decimal_vals_w_neg.v(31): truncated value with size 8 to match size of target (4) File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 31
+Warning (10230): Verilog HDL assignment warning at three_decimal_vals_w_neg.v(32): truncated value with size 8 to match size of target (4) File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 32
+Warning (10230): Verilog HDL assignment warning at three_decimal_vals_w_neg.v(33): truncated value with size 8 to match size of target (4) File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 33
+Info (12128): Elaborating entity "seven_segment_negative" for hierarchy "three_decimal_vals_w_neg:two_d|seven_segment_negative:neg" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 37
+Info (12128): Elaborating entity "seven_segment" for hierarchy "three_decimal_vals_w_neg:two_d|seven_segment:hundreds" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 38
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "numbers:memory|altsyncram:altsyncram_component|altsyncram_30i1:auto_generated|q_a[7]" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/altsyncram_30i1.tdf Line: 205
+Info (278001): Inferred 4 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:two_d|Div2" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 31
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:two_d|Div3" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 32
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:two_d|Mod2" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 32
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:two_d|Mod3" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 33
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:two_d|lpm_divide:Div2" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 31
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:two_d|lpm_divide:Div2" with the following parameter: File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 31
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_mhm.tdf
+    Info (12023): Found entity 1: lpm_divide_mhm File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/lpm_divide_mhm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_ekh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_ekh File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/sign_div_unsign_ekh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_g4f.tdf
+    Info (12023): Found entity 1: alt_u_div_g4f File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/alt_u_div_g4f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:two_d|lpm_divide:Div3" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 32
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:two_d|lpm_divide:Div3" with the following parameter: File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 32
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_jhm.tdf
+    Info (12023): Found entity 1: lpm_divide_jhm File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/lpm_divide_jhm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_bkh File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/sign_div_unsign_bkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_a4f.tdf
+    Info (12023): Found entity 1: alt_u_div_a4f File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/alt_u_div_a4f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:two_d|lpm_divide:Mod2" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 32
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:two_d|lpm_divide:Mod2" with the following parameter: File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 32
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_m9m.tdf
+    Info (12023): Found entity 1: lpm_divide_m9m File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/lpm_divide_m9m.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:two_d|lpm_divide:Mod3" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 33
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:two_d|lpm_divide:Mod3" with the following parameter: File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/three_decimal_vals_w_neg.v Line: 33
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "done" is stuck at GND File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 6
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 7
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 7
+    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 7
+    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 7
+    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 7
+    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 7
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 7
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 8
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 8
+    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 8
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "three_decimal_vals_w_neg:two_d|lpm_divide:Mod2|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider|add_sub_7_result_int[0]~0" File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/db/alt_u_div_a4f.tdf Line: 62
+Info (144001): Generated suppressed messages file //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 266 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 29 output pins
+    Info (21061): Implemented 226 logic cells
+    Info (21064): Implemented 7 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 25 warnings
+    Info: Peak virtual memory: 4775 megabytes
+    Info: Processing ended: Thu Nov 04 12:57:13 2021
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:21
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.map.smsg.
+
+

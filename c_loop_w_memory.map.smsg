@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at c_loop_w_memory.v(84): always construct contains both blocking and non-blocking assignments File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 84
+Info (10281): Verilog HDL Declaration information at c_loop_w_memory.v(52): object "SUM" differs only in case from object "sum" in the same scope File: //Mac/Home/Documents/ECE_205/c_loop_w_memory/c_loop_w_memory/c_loop_w_memory.v Line: 52

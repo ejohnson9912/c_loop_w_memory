@@ -1,0 +1,75 @@
+module c_loop_w_memory (
+input clk, 
+input rst, 
+input start,
+input [1:0]display_control, // 00 = sum, 01 = my i variable
+output reg done,
+output [6:0]seg7_neg_sign,
+output [6:0]seg7_dig0,
+output [6:0]seg7_dig1,
+output [6:0]seg7_dig2
+);
+
+/* memory signals */
+
+
+/* Seven seg signals */
+
+
+/* FSM signals and parameters */
+reg [:] S;
+reg [:] NS;
+parameter START = 
+
+			;
+
+/* sum and i variables */
+reg [:] i;
+reg [:] sum;	
+
+/* instantiate the module to display the 8 bit result */
+three_decimal_vals_w_neg two_d(seven_seg_in, seg7_neg_sign, seg7_dig0, seg7_dig1, seg7_dig2);
+
+/* instantiate IP memory for the array of numbers */
+
+		
+/* S update always block */
+always @(posedge clk or negedge rst)
+begin
+	if (rst == 1'b0)
+		S <= 
+	else
+		S <= NS;
+end
+
+/* NS transitions always block */
+always @(*)
+begin
+	case (S)
+		
+	endcase
+		
+end
+
+/* clocked control signals always block */
+always @(posedge clk or negedge rst)
+begin
+	if (rst == 1'b0)
+	begin
+		
+	end
+	else
+	begin
+		case (S)
+			
+		endcase
+	end
+end
+		
+always @(*)
+begin
+	/* Mux for display on seven segs */
+	
+end
+
+endmodule

@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu Nov 04 12:57:25 2021
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : c_loop_w_memory
+Top-level Entity Name : c_loop_w_memory
+Family : Cyclone IV E
+Device : EP4CE115F29C7
+Timing Models : Final
+Total logic elements : 212 / 114,480 ( < 1 % )
+    Total combinational functions : 211 / 114,480 ( < 1 % )
+    Dedicated logic registers : 44 / 114,480 ( < 1 % )
+Total registers : 44
+Total pins : 33 / 529 ( 6 % )
+Total virtual pins : 0
+Total memory bits : 224 / 3,981,312 ( < 1 % )
+Embedded Multiplier 9-bit elements : 0 / 532 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
